@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('public_transports', function (Blueprint $table) {
             $table->id();
+            $table->string("model", 50);
+            $table->date("year_made");
+            $table->integer("capacity");
             $table->timestamps();
         });
     }
