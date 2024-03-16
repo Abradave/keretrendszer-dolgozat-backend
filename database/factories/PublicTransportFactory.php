@@ -17,7 +17,7 @@ class PublicTransportFactory extends Factory
     public function definition(): array
     {
         return [
-            "model" => fake()->word(),
+            "model" => fake()->randomElement(["Rába", "Mercedes", "Volvo", "Ikarus", "Combino", "Man"]),
             "year_made" => fake()->date(),
             "capacity" => fake()->numberBetween(1,150)
         ];
