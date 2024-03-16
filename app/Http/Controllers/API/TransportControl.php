@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StorePublicTransportRequest;
 use App\Models\PublicTransport;
 use Illuminate\Http\Request;
 
@@ -19,9 +20,12 @@ class TransportControl extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StorePublicTransportRequest $request)
     {
-        //
+        $transport = new PublicTransport();
+        $transport -> fill($request->all());
+        $transport -> save();
+        return response()->json($transport, 201);
     }
 
     /**

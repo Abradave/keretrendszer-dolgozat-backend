@@ -19,7 +19,7 @@ class PublicTransportFactory extends Factory
         return [
             "model" => fake()->randomElement(["Rába", "Mercedes", "Volvo", "Ikarus", "Combino", "Man"]),
             "year_made" => fake()->date(),
-            "capacity" => fake()->numberBetween(1,150)
+            "capacity" => fake()->numberBetween(1,250)
         ];
     }
 }

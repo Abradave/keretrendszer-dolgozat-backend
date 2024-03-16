@@ -11,7 +11,7 @@ class StorePublicTransportRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class StorePublicTransportRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "model" => "required|string|max:50",
+            "year_made" => "required|date|before:tomorrow",
+            "capacity" => "required|numeric|max:250",
         ];
     }
 }
