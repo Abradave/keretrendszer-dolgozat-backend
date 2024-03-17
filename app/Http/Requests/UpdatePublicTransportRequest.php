@@ -11,7 +11,7 @@ class UpdatePublicTransportRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class UpdatePublicTransportRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "model" => "string|max:50",
+            "year_made" => "date|before:tomorrow",
+            "capacity" => "numeric|max:250",
         ];
     }
 }

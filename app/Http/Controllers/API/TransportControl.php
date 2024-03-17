@@ -45,7 +45,13 @@ class TransportControl extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $transport = PublicTransport::find($id);
+        if (is_null($transport)) {
+            return response()->json(["message" => "Vehicle not found with this id: $id"], 404);
+        }
+        $transport->fill($request->all());
+        $transport->save();
+        return $transport;
     }
 
     /**
