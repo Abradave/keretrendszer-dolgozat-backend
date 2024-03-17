@@ -59,6 +59,11 @@ class TransportControl extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $transport = PublicTransport::find($id);
+        if (is_null($transport)) {
+            return response()->json(["message" => "Vehicle not found with this id: $id"], 404);
+        }
+        $transport->delete();
+        return response()->noContent();
     }
 }
