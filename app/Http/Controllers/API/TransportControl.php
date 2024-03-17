@@ -14,7 +14,8 @@ class TransportControl extends Controller
      */
     public function index()
     {
-        return PublicTransport::all();
+        $transport = PublicTransport::all();
+        return response()->json($transport, 201);
     }
 
     /**
